@@ -1,14 +1,8 @@
-.header {
-  height: 40px;
-}
-
-.icon-bars {
+nav {
+  background-color: #563d7c;
   color: white;
 }
 
-.nav-brand-centre {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.icon-bars {
   color: white;
 }
