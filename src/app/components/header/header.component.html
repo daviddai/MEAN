@@ -1,11 +1,11 @@
 <nav class="navbar navbar-light">
   <div class="container pr-0">
     <ul class="nav navbar mx-auto">
-      <li class="nav-item">My App</li>
+      <li class="nav-item">{{ appName }}</li>
     </ul>
     <ul class="nav navbar-nav">
       <li class="nav-item">
-        <button class="navbar-toggler d-lg-none" type="button"
+        <button class="navbar-toggler btn-hamburger" type="button"
                 aria-controls="appMenu" aria-label="Toggle navigation"
                 (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
           <i class="fa fa-bars icon-bars" style="color: white"></i>

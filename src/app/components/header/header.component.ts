@@ -9,7 +9,9 @@ export class HeaderComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor() { }
+  appName: string = "MEAN";
+
+  constructor() {}
 
   ngOnInit() {}
 

@@ -6,3 +6,7 @@ nav {
 .icon-bars {
   color: white;
 }
+
+.btn-hamburger:focus {
+  outline: none;
+}
