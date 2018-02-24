@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ToggleService} from '../../shared/toggle-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  appName = 'MEAN';
 
-  isCollapsed = true;
-
-  appName: string = "MEAN";
-
-  constructor() {}
+  constructor(private toggleService: ToggleService) {}
 
   ngOnInit() {}
+
+  toggleSideBar() {
+    this.toggleService.announceToggle();
+  }
 
 }

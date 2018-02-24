@@ -8,6 +8,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import {ToggleService} from './shared/toggle-service.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     routing,
     NgbCollapseModule
   ],
-  providers: [],
+  providers: [ToggleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

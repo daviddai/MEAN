@@ -7,31 +7,10 @@
       <li class="nav-item">
         <button class="navbar-toggler btn-hamburger" type="button"
                 aria-controls="appMenu" aria-label="Toggle navigation"
-                (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+                (click)="toggleSideBar()" [attr.aria-expanded]="!isCollapsed">
           <i class="fa fa-bars icon-bars" style="color: white"></i>
         </button>
       </li>
     </ul>
   </div>
-
-
-
-
-
-  <!--<div class="collapse navbar-collapse" id="appMenu" [ngbCollapse]="isCollapsed">-->
-    <!--<ul class="navbar-nav mr-auto">-->
-      <!--<li class="nav-item active">-->
-        <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#">Settings</a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#">Profile</a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#">Help</a>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
 </nav>
