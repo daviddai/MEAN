@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ToggleService } from '../../shared/toggle-service.service';
+import { Router } from '@angular/router';
 import {
   trigger,
   state,
@@ -29,7 +30,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   menuItems = {};
   objectKeys = Object.keys;
 
-  constructor(private toggleService: ToggleService) {
+  constructor(private toggleService: ToggleService, private router: Router) {
     this.subscription = this.toggleService.toggleAnnounced$.subscribe(
       () => {
         this.toggleSideBar();
@@ -52,6 +53,10 @@ export class SideBarComponent implements OnInit, OnDestroy {
     } else {
       this.sideBarState = SideBarStates.SHOW;
     }
+  }
+
+  isCurrentMenuItemActive(url: string): boolean {
+    return this.router.url === url;
   }
 
   ngOnDestroy() {

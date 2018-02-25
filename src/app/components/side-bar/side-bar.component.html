@@ -1,7 +1,8 @@
 <div class="side-bar text-center pt-2" [@sideBarState]="sideBarState">
     <ul class="navbar-nav mr-auto">
       <li *ngFor="let itemName of objectKeys(menuItems)" class="nav-item text-left">
-        <a class="nav-link" href="{{ menuItems[itemName] }}">
+        <a class="nav-link" [ngClass]="isCurrentMenuItemActive(menuItems[itemName]) ? 'active' : ''"
+           href="{{ menuItems[itemName] }}">
           <div class="row ml-2 pr-2">
             <div class="col-8">{{ itemName }}</div>
             <div class="col-4">
