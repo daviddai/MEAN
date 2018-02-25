@@ -1,17 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ToggleService } from '../../shared/toggle-service.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+import {Subscribable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.css']
+  styleUrls: ['./side-bar.component.css'],
+  animations: [
+    trigger('sideBarState', [
+      state('hide', style({left: '-60%'})),
+      state('show', style({left: '0%'})),
+      transition('hide => show', animate('200ms')),
+      transition('show => hide', animate('200ms'))
+    ])
+  ]
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnInit, OnDestroy {
 
-  display: string;
+  sideBarState: string;
+  subscription: Subscribable;
 
   constructor(private toggleService: ToggleService) {
-    this.toggleService.toggleAnnounced$.subscribe(
+    this.subscription = this.toggleService.toggleAnnounced$.subscribe(
       () => {
         this.toggleSideBar();
       }
@@ -19,20 +36,23 @@ export class SideBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.display = SideBarDisplayStyle.None;
+    this.sideBarState = 'hide';
   }
 
   toggleSideBar() {
-    if (this.display === SideBarDisplayStyle.None) {
-      this.display = SideBarDisplayStyle.Block;
+    if (this.sideBarState === SideBarStates.SHOW) {
+      this.sideBarState = SideBarStates.HIDE;
     } else {
-      this.display = SideBarDisplayStyle.None;
+      this.sideBarState = SideBarStates.SHOW;
     }
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
 
-enum SideBarDisplayStyle {
-  None = 'none',
-  Block = 'block'
+enum SideBarStates {
+  HIDE = 'hide',
+  SHOW = 'show'
 }

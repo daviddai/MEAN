@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing } from './app.routes';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
@@ -22,7 +23,8 @@ import {ToggleService} from './shared/toggle-service.service';
   imports: [
     BrowserModule,
     routing,
-    NgbCollapseModule
+    NgbCollapseModule,
+    BrowserAnimationsModule
   ],
   providers: [ToggleService],
   bootstrap: [AppComponent]
