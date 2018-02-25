@@ -26,6 +26,8 @@ export class SideBarComponent implements OnInit, OnDestroy {
 
   sideBarState: string;
   subscription: Subscription;
+  menuItems = {};
+  objectKeys = Object.keys;
 
   constructor(private toggleService: ToggleService) {
     this.subscription = this.toggleService.toggleAnnounced$.subscribe(
@@ -37,6 +39,11 @@ export class SideBarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sideBarState = 'hide';
+    this.menuItems = {
+      'Home': '/',
+      'Sign In': '/login',
+      'Sign Up' : '/register',
+    };
   }
 
   toggleSideBar() {

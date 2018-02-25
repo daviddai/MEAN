@@ -1,29 +1,9 @@
 <div class="side-bar text-center pt-2" [@sideBarState]="sideBarState">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item text-left">
-        <a class="nav-link" href="#">
+      <li *ngFor="let itemName of objectKeys(menuItems)" class="nav-item text-left">
+        <a class="nav-link" href="{{ menuItems[itemName] }}">
           <div class="row ml-2 pr-2">
-            <div class="col-8">Home</div>
-            <div class="col-4">
-              <i class="fa fa-caret-right"></i>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="nav-item text-left">
-        <a class="nav-link" href="#">
-          <div class="row ml-2 pr-2">
-            <div class="col-8">Sign In</div>
-            <div class="col-4">
-              <i class="fa fa-caret-right"></i>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="nav-item text-left">
-        <a class="nav-link" href="#">
-          <div class="row ml-2 pr-2">
-            <div class="col-8">Sign Up</div>
+            <div class="col-8">{{ itemName }}</div>
             <div class="col-4">
               <i class="fa fa-caret-right"></i>
             </div>
