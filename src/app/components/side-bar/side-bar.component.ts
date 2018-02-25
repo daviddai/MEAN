@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { ToggleService } from '../../shared/toggle-service.service';
 import {
   trigger,
@@ -7,7 +8,6 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import {Subscribable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-side-bar',
@@ -15,7 +15,7 @@ import {Subscribable} from 'rxjs/Observable';
   styleUrls: ['./side-bar.component.css'],
   animations: [
     trigger('sideBarState', [
-      state('hide', style({left: '-60%'})),
+      state('hide', style({left: '-50%'})),
       state('show', style({left: '0%'})),
       transition('hide => show', animate('200ms')),
       transition('show => hide', animate('200ms'))
@@ -25,7 +25,7 @@ import {Subscribable} from 'rxjs/Observable';
 export class SideBarComponent implements OnInit, OnDestroy {
 
   sideBarState: string;
-  subscription: Subscribable;
+  subscription: Subscription;
 
   constructor(private toggleService: ToggleService) {
     this.subscription = this.toggleService.toggleAnnounced$.subscribe(
