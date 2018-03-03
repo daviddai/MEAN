@@ -15,6 +15,7 @@ import { routing } from './app.routes';
 
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import {CanActivateUser} from './router-guards/can-activate-user';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {CanActivateUser} from './router-guards/can-activate-user';
     UserLoginComponent,
     HomeComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
