@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { ToggleService } from '../../shared/toggle-service.service';
+import { ToggleService } from '../../services/toggle-service.service';
 import { Router } from '@angular/router';
 import {
   trigger,

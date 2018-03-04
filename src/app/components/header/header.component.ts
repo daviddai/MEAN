@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ToggleService} from '../../shared/toggle-service.service';
+import {ToggleService} from '../../services/toggle-service.service';
 
 @Component({
   selector: 'app-header',

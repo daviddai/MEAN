@@ -13,29 +13,33 @@
   <div class="text-center or-separator">
     - or -
   </div>
-  <div class="mt-2 pl-3 pr-3 pb-3">
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text icon-envelope">
-            <i class="fa fa-envelope fa-fw"></i>
-          </span>
+  <form (ngSubmit)="login()">
+    <div class="mt-2 pl-3 pr-3 pb-3">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text icon-envelope">
+              <i class="fa fa-envelope fa-fw"></i>
+            </span>
+          </div>
+          <input id="email" class="form-control input-email"
+                 placeholder="Email" [(ngModel)]="loginUser.email" name="email">
         </div>
-        <input class="form-control input-email" placeholder="Email">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend ">
-          <span class="input-group-text icon-lock">
-            <i class="fa fa-lock fa-fw icon-lock"></i>
-          </span>
+        <div class="input-group">
+          <div class="input-group-prepend ">
+            <span class="input-group-text icon-lock">
+              <i class="fa fa-lock fa-fw icon-lock"></i>
+            </span>
+          </div>
+          <input id="password" class="form-control input-password" type="password"
+                 placeholder="Password" [(ngModel)]="loginUser.password" name="password">
         </div>
-        <input class="form-control input-password" placeholder="Password">
       </div>
     </div>
-  </div>
-  <div class="mt-2 pl-3 pr-3 pb-3">
-    <button class="btn btn-block btn-login">Log in</button>
-  </div>
+    <div class="mt-2 pl-3 pr-3 pb-3">
+      <button type="submit" class="btn btn-block btn-login">Log in</button>
+    </div>
+  </form>
   <div class="text-center pt-3 pb-3">
     <a href="#">Help! I forget my login detail!</a>
   </div>
