@@ -27,10 +27,16 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {}
 
   public login() {
+    this.prepareLogin();
+    this.userLoginService.userLogin(this.loginUser).then((result) => {
+      console.log(result);
+    });
+  }
+
+  private prepareLogin() {
     this.loginButtonText = this.LOGGING_IN;
     this.showSpinningWheel = true;
     this.disableLoginButton = true;
-    this.userLoginService.userLogin(this.loginUser);
   }
 
 }
