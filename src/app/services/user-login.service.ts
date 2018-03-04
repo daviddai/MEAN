@@ -9,7 +9,9 @@ export class UserLoginService {
   public userLogin(loginUser: LoginUser) {
     console.log(JSON.stringify(loginUser));
     return new Promise(function (resolve, reject) {
-      resolve('done');
+      setTimeout(() => {
+        resolve('done');
+      }, 4000);
     });
   }
 
