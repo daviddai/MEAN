@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginUser} from '../../models/login-user';
-import {UserLoginService} from '../../services/user-login.service';
+import { LoginUser } from '../../models/login-user';
+import { UserLoginService } from '../../services/user-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -17,7 +18,7 @@ export class UserLoginComponent implements OnInit {
   public showSpinningWheel: boolean;
   public disableLoginButton: boolean;
 
-  constructor(private userLoginService: UserLoginService) {
+  constructor(private userLoginService: UserLoginService, private router: Router) {
     this.loginUser = new LoginUser();
     this.loginButtonText = this.LOG_IN;
     this.showSpinningWheel = false;
@@ -28,9 +29,14 @@ export class UserLoginComponent implements OnInit {
 
   public login() {
     this.preLogin();
-    this.userLoginService.userLogin(this.loginUser).subscribe((result) => {
-      console.log(result);
-      this.postLogin();
+    this.userLoginService.userLogin(this.loginUser).subscribe((response) => {
+      if ('error' in response) {
+        console.log(response['error']['message']);
+        this.postLogin();
+      } else {
+        localStorage.setItem('user', JSON.stringify(response));
+        this.router.navigate(['']);
+      }
     });
   }
 
