@@ -28,7 +28,7 @@ export class UserLoginComponent implements OnInit {
 
   public login() {
     this.preLogin();
-    this.userLoginService.userLogin(this.loginUser).then((result) => {
+    this.userLoginService.userLogin(this.loginUser).subscribe((result) => {
       console.log(result);
       this.postLogin();
     });

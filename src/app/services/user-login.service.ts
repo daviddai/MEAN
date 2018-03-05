@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import {LoginUser} from '../models/login-user';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class UserLoginService {
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  public userLogin(loginUser: LoginUser) {
-    console.log(JSON.stringify(loginUser));
-    return new Promise(function (resolve, reject) {
-      setTimeout(() => {
-        resolve('done');
-      }, 4000);
-    });
+  public userLogin(loginUser: LoginUser): Observable<any> {
+    return this.httpClient.post('http://localhost:3000/api/user/login', loginUser);
   }
 
 }
