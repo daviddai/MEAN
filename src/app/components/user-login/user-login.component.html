@@ -13,19 +13,33 @@
   <div class="text-center or-separator">
     - or -
   </div>
-  <form (ngSubmit)="login()">
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
     <div class="mt-2 pl-3 pr-3 pb-3">
       <div class="form-group">
         <label>Email</label>
-        <input name="email" [(ngModel)]="loginUser.email" type="text" class="form-control">
+        <input id="email" formControlName="email" [(ngModel)]="loginUser.email"
+               type="text" class="form-control"
+               [ngClass]="(email.dirty || email.touched) && isInputInvalid('email') ? 'error-input' : ''">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors.required" class="error">
+            Email is required
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input name="password" [(ngModel)]="loginUser.password" type="password" class="form-control">
+        <input id="password" formControlName="password" [(ngModel)]="loginUser.password"
+               type="password" class="form-control"
+               [ngClass]="(password.dirty || password.touched) && isInputInvalid('password') ? 'error-input' : ''">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors.required" class="error">
+            Password is required
+          </div>
+        </div>
       </div>
     </div>
     <div class="mt-2 pl-3 pr-3 pb-3">
-      <button type="submit" class="btn btn-block btn-login" [disabled]="disableLoginButton">
+      <button type="submit" class="btn btn-block btn-login" [disabled]="disableLoginButton || loginForm.invalid">
         {{ loginButtonText }}
         <i class="fa fa-spinner fa-spin" [hidden]="!showSpinningWheel"></i>
       </button>

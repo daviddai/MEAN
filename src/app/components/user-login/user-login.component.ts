@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginUser } from '../../models/login-user';
 import { UserLoginService } from '../../services/user-login.service';
 import { Router } from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
@@ -18,6 +19,8 @@ export class UserLoginComponent implements OnInit {
   public showSpinningWheel: boolean;
   public disableLoginButton: boolean;
 
+  public loginForm: FormGroup;
+
   constructor(private userLoginService: UserLoginService, private router: Router) {
     this.loginUser = new LoginUser();
     this.loginButtonText = this.LOG_IN;
@@ -25,7 +28,16 @@ export class UserLoginComponent implements OnInit {
     this.disableLoginButton = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      'email': new FormControl(this.loginUser.email, [
+        Validators.required
+      ]),
+      'password': new FormControl(this.loginUser.password, [
+        Validators.required
+      ])
+    });
+  }
 
   public login() {
     this.preLogin();
@@ -50,5 +62,17 @@ export class UserLoginComponent implements OnInit {
     this.loginButtonText = this.LOG_IN;
     this.showSpinningWheel = false;
     this.disableLoginButton = false;
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  isInputInvalid(formControlName) {
+    return this.loginForm.get(formControlName).invalid;
   }
 }
