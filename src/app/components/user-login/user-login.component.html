@@ -24,6 +24,9 @@
           <div *ngIf="email.errors.required" class="error">
             Email is required
           </div>
+          <div *ngIf="email.errors.invalidEmail" class="error">
+            Incorrect email format
+          </div>
         </div>
       </div>
       <div class="form-group">
