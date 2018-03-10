@@ -5,12 +5,12 @@
 }
 
 .header {
-  font-family: "American Typewriter";
+  font-family: "American Typewriter", serif;
   font-size: medium;
 }
 
 .or-separator {
-  font-family: Arial;
+  font-family: Arial, serif;
   opacity: .5;
 }
 
@@ -40,14 +40,6 @@
   font-size: 1.5em;
 }
 
-.icon-lock {
-  border-top-left-radius: 0;
-}
-
-.icon-envelope {
-  border-bottom-left-radius: 0;
-}
-
 input:focus {
   box-shadow: none;
 }
@@ -68,6 +60,22 @@ a {
   text-decoration: none;
   font-size: small;
   color: #99c432;
+}
+
+label {
+  font-weight: bold;
+  font-family: "Apple SD Gothic Neo", serif;
+  color: slategrey;
+  margin-bottom: 0;
+}
+
+input {
+  padding-top: 0;
+  padding-left: 0;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 
