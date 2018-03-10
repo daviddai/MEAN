@@ -5,8 +5,10 @@
 }
 
 .header {
-  font-family: "American Typewriter";
-  font-size: medium;
+  font-family: "Apple SD Gothic Neo", serif, serif;
+  font-size: large;
+  color: darkslategrey;
+  font-weight: bold;
 }
 
 .btn-signup {
@@ -15,43 +17,28 @@
   font-size: medium;
 }
 
-.input-user-name {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.input-email {
-  border-radius: 0;
-}
-
-.input-password {
-  border-radius: 0;
-}
-
-.input-confirm-password {
-  border-top-right-radius: 0;
-}
-
-.icon-user {
-  border-bottom-left-radius: 0;
-}
-
-.icon-lock {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.icon-confirm-lock {
-  border-top-left-radius: 0;
-}
-
-.icon-envelope {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 a {
   text-decoration: none;
   font-size: small;
   color: #99c432 !important;
+}
+
+label {
+  font-weight: bold;
+  font-family: "Apple SD Gothic Neo", serif;
+  color: slategrey;
+  margin-bottom: 0;
+}
+
+input {
+  padding-top: 0;
+  padding-left: 0;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+input:focus {
+  box-shadow: none;
 }
