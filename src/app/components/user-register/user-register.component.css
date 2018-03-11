@@ -42,3 +42,14 @@ input {
 input:focus {
   box-shadow: none;
 }
+
+.error {
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+
+.error-input {
+  border-bottom-color: red;
+  border-bottom-width: medium;
+}
